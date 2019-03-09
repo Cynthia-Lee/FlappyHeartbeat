@@ -154,14 +154,14 @@ void drawPulseWaveform(){
   for (int i = 0; i < RawY.length-1; i++) {      // move the pulse waveform by
     RawY[i] = RawY[i+1];                         // shifting all raw datapoints one pixel left
     float dummy = RawY[i] * zoom + offset;       // adjust the raw data to the selected scale
-    ScaledY[i] = constrain(int(dummy),44,400);   // transfer the raw data array to the scaled array
+    ScaledY[i] = constrain(int(dummy),44,300);   // transfer the raw data array to the scaled array
   }
   stroke(255,0,1);                               // red is a good color for the pulse waveform
   noFill();
   strokeWeight(5);
   beginShape();                                  // using beginShape() renders fast
   for (int x = 1; x < ScaledY.length-1; x++) {
-    vertex(x+50,ScaledY[x]+400);                    //draw a line connecting the data points
+    vertex(x+50,ScaledY[x]+500);                    //draw a line connecting the data points
   }
   endShape();
 }
@@ -175,14 +175,14 @@ void drawPulseMirrorform(){
   for (int i = 0; i < RawY.length-1; i++) {      // move the pulse waveform by
     RawY[i] = RawY[i+1];                         // shifting all raw datapoints one pixel left
     float dummy = RawY[i] * zoom + offset;       // adjust the raw data to the selected scale
-    ScaledY[i] = constrain(int(dummy),44,400);   // transfer the raw data array to the scaled array
+    ScaledY[i] = constrain(int(dummy),44,300);   // transfer the raw data array to the scaled array
   }
   stroke(0,0,250);                               // bloo
   noFill();
   strokeWeight(5);
   beginShape();                                  // using beginShape() renders fast
   for (int x = 1; x < ScaledY.length-1; x++) {
-    vertex(x+50,(ScaledY[x]*-1)+550);                    //draw a line connecting the data points
+    vertex(x+50,(ScaledY[x]*-1)+450);                    //draw a line connecting the data points
   }
   endShape();
 }
